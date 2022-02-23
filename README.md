@@ -1,29 +1,46 @@
+<h1 align="center">
+    <img src="everyone-bot-logo.png" alt="Everyone bot logo" width="200">
+    <br>
+    Everyone Bot
+</h1>
 
-## Config Vars
-1. `API_ID` : Telegram API_ID, get it from my.telegram.org/apps
-2. `API_HASH` : Telegram API_ID, get it from my.telegram.org/apps
-3. `BOT_TOKEN` : A Valid Telegram Bot Token, get it from @Botfather
+> Telegram bot to get everyone's attention in a group chat. Like `@everyone` in other messaging applications.
 
-## Commands
-### Works in any group ( /set  &  /stopc )
+## Use
+
+Use the hosted bot, or host your own!
+
+[Add to your group](https://telegram.me/everyonethebot)
+
+Commands:
 
 ```
-> Send the command below in correct format to the group.
-
-  /set seconds "event"
-
-Example:
-  /set 86400 "TIME LEFT UNTIL NEW YEAR"
-```
-```
-> You can send /stopc to stop all countdowns.
-
-  /stopc
+/start - Display help text
+/in - Opt-in to receive mentions
+/out - Opt-out of receiving mentions
+/everyone - Mention all opted-in users
+/clean - Admin-only command to clean up inactive users
 ```
 
-## Deployment Methods
+## Installation
 
-### Heroku
+-   Clone the repository
+-   Run `npm install -g yarn` if you haven't got yarn installed globally.
+-   Run `yarn install` in the repository to install dependencies.
+-   Create a config.json based on `config-sample.json` with the desired settings or setup the environment variables mentioned below.
+-   Run `npm start` or `npm start:dev` to start the service.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/kyryl0/prykladnyycountdownbot)
-    
+## Environment Variables
+
+| Name                                   | Description                                                                                                              |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| TELEGRAM_API_KEY                       | API key for the telegram bot, provided by [@BotFather](https://telegram.me/BotFather)                                    |
+| BOT_USERNAME                           | Username of the live bot on Telegram. Must be without the @ sign.                                                        |
+| FIREBASE_PROJECT_NAME                  | Firebase project to be used for storage of groups & users.                                                               |
+| FIREBASE_DATABASE_SECRET               | Auth secret for Firebase to communicate securely.                                                                        |
+| MENTIONS_PER_MESSAGE                   | Used to chunk the mentions into multiple messages as Telegram doesn't notify the people mentioned after the first 4 - 5. |
+| ENABLE_REMOVE_INACTIVE_MEMBERS_COMMAND | Enables the experimental admin-only /clean command                                                                       |
+
+## License
+
+[MIT &copy; Aquib Master](./LICENSE.md)
